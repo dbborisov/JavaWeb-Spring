@@ -6,10 +6,11 @@ import com.example.demo.service.models.CarServiceModel;
 import com.example.demo.service.services.CarService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
+@Service
 public class CarServiceImpl implements CarService {
 
     private final ModelMapper modelMapper;
@@ -35,7 +36,7 @@ public class CarServiceImpl implements CarService {
             this.carRepository.save(this.modelMapper.map(carServiceModel, Car.class));
             return true;
         }catch (Exception e){
-            System.out.println("can't save !!! CareServiceImplÁ");
+            System.out.println("can't save !!! CareServiceImpl");
             e.printStackTrace();
             return false;
         }

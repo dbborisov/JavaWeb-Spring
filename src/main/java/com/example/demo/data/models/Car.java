@@ -3,6 +3,7 @@ package com.example.demo.data.models;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -13,15 +14,18 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class Car {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "uuid-string")
+    @GenericGenerator(name = "uuid-string",strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    @Column(name = "id", nullable = false, unique = true, updatable = false)
     private String id;
-    @Column(nullable = false,name = "brand")
+    @Column(nullable = false, name = "brand")
     private String brand;
-    @Column(nullable = false, name ="model" )
+    @Column(nullable = false, name = "model")
     private String model;
-    @Column(nullable = false,name = "engine" )
+    @Column(nullable = false, name = "engine")
     private String engine;
-    @Column(nullable = false,name = "year")
+    @Column(nullable = false, name = "year")
     private String year;
 
 
