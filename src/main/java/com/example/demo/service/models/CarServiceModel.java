@@ -1,25 +1,18 @@
-package com.example.demo.data.repository;
+package com.example.demo.service.models;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "cars")
-@Getter
 @Setter
+@Getter
 @NoArgsConstructor
-public class Car {
-    @Id
+public class CarServiceModel {
+
     private String id;
     private String brand;
     private String model;
     private String engine;
     private String year;
-
 
 }
