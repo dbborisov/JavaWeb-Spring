@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
+
 @Controller
 public class CarController {
 
@@ -23,7 +26,10 @@ public class CarController {
 
     @GetMapping("/all")
     public ModelAndView all(ModelAndView modelAndView){
+        List<CarServiceModel> cars= this.carService.findAll();
         modelAndView.setViewName("all");
+        modelAndView.addObject("cars",cars);
+
         return modelAndView;
     }
 
